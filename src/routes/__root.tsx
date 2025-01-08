@@ -24,19 +24,6 @@ export const Route = createRootRoute({
 function RootComponent() {
   const store = useDocStore();
 
-  useEffect(() => {
-    const selectedTab = sessionStorage.getItem("tab");
-    store.setSelectedTab(selectedTab ? selectedTab : "Getting Started");
-  }, []);
-
-  useEffect(() => {
-    if (store.isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [store.isDarkMode]);
-
   const tabs: Tab[] = [
     {
       main: "Getting Started",
@@ -69,6 +56,27 @@ function RootComponent() {
       path: "/faq",
     },
   ];
+
+  useEffect(() => {
+    const selectedTab = sessionStorage.getItem("tab");
+      if (selectedTab) {
+    store.setSelectedTab(selectedTab);
+  } else {
+    // If not, set the tab based on the current route
+    const currentPath = window.location.pathname;
+    const currentTab = tabs.find(tab => tab.path === currentPath)?.main;
+    store.setSelectedTab(currentTab || "Getting Started");
+  }
+  }, []);
+
+  useEffect(() => {
+    if (store.isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [store.isDarkMode]);
+
 
   return (
     <section className="h-screen fixed w-full bg-gradient-to-r from-white via-zinc-50 to-fuchsia-100 dark:bg-gradient-to-r dark:from-[#151617] dark:via-zinc-950 dark:to-fuchsia-950 bg-white text-black dark:bg-black dark:text-white">
