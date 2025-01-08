@@ -1,5 +1,3 @@
----
-
 # Buug Documentation  
 
 This repository contains the React-based front-end documentation for the **Buug** web app. It serves as a comprehensive guide for both developers and end-users, providing information on:  
@@ -22,4 +20,3 @@ The documentation is live at: [Buug Documentation](https://buug-doc.netlify.app/
 ### Contributions  
 Contributions are welcome! Feel free to submit issues or pull requests to improve the documentation.  
 
----  
