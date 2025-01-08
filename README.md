@@ -1,5 +1,3 @@
-Here’s a description for your GitHub repository:  
-
 ---
 
 # Buug Documentation  
@@ -25,5 +23,3 @@ The documentation is live at: [Buug Documentation](https://buug-doc.netlify.app/
 Contributions are welcome! Feel free to submit issues or pull requests to improve the documentation.  
 
 ---  
-
-Let me know if you'd like me to tweak this further!
